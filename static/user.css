@@ -39,5 +39,13 @@ hr{
 }
 
 .btn-light{
-    background-color: beige !important;
+    border-color: #9f8066 !important;
+}
+
+.change-icon > .fas + .fas,
+.change-icon:hover > .fas {
+  display: none;
+}
+.change-icon:hover > .fas + .fas {
+  display: inherit;
 }
