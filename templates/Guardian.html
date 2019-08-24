@@ -1,13 +1,9 @@
-<!doctype html>
+!doctype html>
 <html lang="en">
   <head>
-    <!--comment-->
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="../static/login.css">
-    <!-- Bootstrap CSS s-->
-    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../static/Guardian.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <title>Login</title>
@@ -31,39 +27,6 @@
         </form>
       </div>
     </div>
-      <script>
-
-        const loginForm = document.querySelector('#login-form');
-        loginForm.addEventListener('submit', (e) => {
-          e.preventDefault();
-          
-          // get user info
-          const email = loginForm['login-email'].value;
-          const password = loginForm['login-password'].value;
-
-          // log the user in
-          window.auth.signInWithEmailAndPassword(email, password).then((cred) => {
-            loginForm.reset();
-            loginForm.querySelector('.error').innerHTML = '';
-            document.location.href = '.'; // going to homepage, if wanted to go to a welcomepage just '/welcome' and will go to localhost:8080/welcome
-          }).catch(err => {
-            loginForm.querySelector('.error').innerHTML = '*' + err.message;
-          });
-
-        });
-        
-      </script>
-
-        <!--   <ul>
-        <li><a href="{{ url_for('students') }}"> Students Queries </a></li>
-        <li><a href="{{ url_for('professor') }}">Professor Queries</a></li>
-        <li><a href="{{ url_for('department') }}">Department Queries</a></li>
-        <li><a href="{{ url_for('CourseBySID') }}">Get the courses a Student has by giving his ID</a></li>
-        <li><a href="{{ url_for('TiemNomyNom') }}">Get the Available Time, Id and Name of Given Professor</a></li>
-        <li><a href="{{ url_for('Ecoas') }}">Get the ECOAS result, with the course number, course name, group number and semestrer by giving the professor ID</a></li>
-        <li><a href="{{ url_for('Phistory') }}"> Get the Professor History by giving his id</a></li>
-      </ul> -->
-
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
