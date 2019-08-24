@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+
+</style>
+<head>
+    <link rel="stylesheet" type="text/css" href="/static/styles.css">
+    <meta charset="UTF-8">
+    <title>Department</title>
+</head>
+<body>
+<h1>Department</h1>
+
+<div>
+    <form method="POST" action="{{ url_for('department') }}">
+        <div>
+            <label for="dId"> Department ID: </label>
+            <input type="text" id="dId" name="dId">
+        </div>
+
+        <div>
+                <label for="dName"> Department Name: </label>
+                <input type="text" id="dName" name="dName">
+        </div>
+
+      <div>
+        <label for="dNumber"> Department Number: </label>
+        <input type="text" id="dNumber" name="dNumber">
+      </div>
+
+      <div>
+            <label for="dPhoneNumber"> Department Phone Number: </label>
+            <input type="text" id="dPhoneNumber" name="dPhoneNumber">
+    </div>
+
+    
+    <div>
+        <label for="dOffice"> Department Office Number: </label>
+        <input type="text" id="dOffice" name="dOffice">
+</div>
+      
+      <input type="submit" value="Insert">
+    </form>
+</div>
+<hr>
+
+<h2>Search Department by Name: </h2>
+<div class="inputs">
+        <form method="GET" action="{{ url_for('department') }}">
+            <label for="dName">Department Name:</label>
+            <input type="text" id="dName" name="dName">
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+<table id="department" style="width:100%">
+    {% if result %}
+    <tr>
+        <th>Department Id</th>
+        <th>Department Name</th>
+        <th>Department Number</th>
+        <th>Department Phone</th>
+        <th>Department Office Number</th>
+    </tr>
+    {% for row in result %}
+    <tr>
+        <td> {{ row.dId }}</td>
+        <td> {{ row.dName }}</td>
+        <td> {{ row.dNumber }}</td>
+        <td> {{ row.dPhoneNumber }}</td>
+        <td> {{ row.dOffice }}</td>
+    </tr>
+    {% endfor %}
+    {% endif %}
+</table>
+
+<h2>Delete Department</h2>
+<form method="POST" action="{{ url_for('del_departments') }}">
+    <div>
+        <label for="dId">Department ID:</label>
+        <input type="text" id="dId" name="dId">
+        <input type="submit" value="Submit">
+    </div>
+</form>
+
+
+</body>
+</html>

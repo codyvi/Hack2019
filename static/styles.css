@@ -1,0 +1,33 @@
+
+body {
+  font-family: Verdana;
+  font-size: 13px;
+}
+
+.inputs {
+  margin: 10px 0px;
+}
+
+input {
+  padding: 5px;
+}
+
+input[type="submit"] {
+  box-sizing: content-box;
+  margin: 5px;
+}
+
+/*   TABLE   */
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+tr:nth-child(even) {
+    background-color: #dddddd;
+}

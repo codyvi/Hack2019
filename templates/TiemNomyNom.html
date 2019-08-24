@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+
+</style>
+<head>
+    <link rel="stylesheet" type="text/css" href="/static/styles.css">
+    <meta charset="UTF-8">
+    <title>Schedule Available of Proffesor</title>
+</head>
+<body>
+    <h1>Get the Professor ID, Professor Name and Schedules Available by giving Professor ID</h1>
+    <div class="inputs">
+            <form method="GET" action="{{ url_for('TiemNomyNom') }}">
+                <label for="pID">Professor ID:</label>
+                <input type="text" id="pID" name="pID">
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+<table id="TiemNomyNom" style="width:100%">
+    {% if result %}
+    <tr>
+        <th>Professor ID</th>
+        <th>Professor Name</th>
+        <th>Schedule Available</th>
+    </tr>
+    {% for row in result %}
+    <tr>
+        <td> {{ row.pID }}</td>
+        <td> {{ row.pName }} </td>
+        <td> {{ row.hTime }}</td>
+    </tr>
+    {% endfor %}
+    {% endif %}
+</table>
+</body>
+</html>

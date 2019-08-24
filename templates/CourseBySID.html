@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+
+</style>
+<head>
+    <link rel="stylesheet" type="text/css" href="/static/styles.css">
+    <meta charset="UTF-8">
+    <title>Course by Student id</title>
+</head>
+<body>
+    <h1>Get the Course name that a student is taking by Giving a Student ID</h1>
+    <div class="inputs">
+            <form method="GET" action="{{ url_for('CourseBySID') }}">
+                <label for="sID">Student ID:</label>
+                <input type="text" id="sID" name="sID">
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+<table id="CourseBySID" style="width:100%">
+    {% if result %}
+    <tr>
+        <th>Student Name</th>
+        <th>Course Name</th>
+    </tr>
+    {% for row in result %}
+    <tr>
+        <td> {{ row.sName }}</td>
+        <td> {{ row.cName }} </td>
+    </tr>
+    {% endfor %}
+    {% endif %}
+</table>
+</body>
+</html>

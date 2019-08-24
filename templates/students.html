@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+
+</style>
+<head>
+    <link rel="stylesheet" type="text/css" href="/static/styles.css">
+    <meta charset="UTF-8">
+    <title>Students</title>
+</head>
+<body>
+<h1>Students</h1>
+
+<div>
+    <form method="POST" action="{{ url_for('students') }}">
+        <div>
+            <label for="sID"> Student ID: </label>
+            <input type="text" id="sID" name="sID">
+        </div>
+        <div>
+            <label for="sUPRC"> Student URPC (CURP): </label>
+            <input type="text" id="sUPRC" name="sUPRC">
+        </div>
+        <div>
+                <label for="sName"> Student Name: </label>
+                <input type="text" id="sName" name="sName">
+        </div>
+      <div>
+        <label for="sAddress"> Student Address: </label>
+        <input type="text" id="sAddress" name="sAddress">
+      </div>
+
+      <div>
+            <label for="sPhoneNumber"> Student Phone Number: </label>
+            <input type="text" id="sPhoneNumber" name="sPhoneNumber">
+    </div>
+      
+      <div>
+        <label class="radio">
+          <input type="radio" name="sSex" value="F">
+          F
+        </label>
+        <label class="radio">
+          <input type="radio" name="sSex" value="M">
+          M
+        </label>
+      </div>
+
+      <div>
+        <label for="sBDate">Date of Birth:</label>
+        <input type="date" id="sBDate" name="sBDate">
+      </div>
+
+      <div>
+        <label for="sDepartment">Department ID:</label>
+        <input type="text" id="sDepartment" name="sDepartment">
+      </div>
+
+      <div>
+            <label for="sMajor">Student Major:</label>
+            <input type="text" id="sMajor" name="sMajor">
+    </div>
+
+      <input type="submit" value="Insert">
+      </form>
+</div>
+
+<hr>
+
+<h2>Search Students by ID</h2>
+<div class="inputs">
+        <form method="GET" action="{{ url_for('students') }}">
+            <label for="sID">Student ID:</label>
+            <input type="text" id="sID" name="sID">
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+<table id="students" style="width:100%">
+    {% if result %}
+    <tr>
+        <th>Student Id</th>
+        <th>UPRC</th>
+        <th>Student Name</th>
+        <th>Student Address</th>
+        <th>Student Phone</th>
+        <th>Student Sex</th>
+        <th>Student Bdate</th>
+        <th>Student Department</th>
+        <th>Student Major</th>
+    </tr>
+    {% for row in result %}
+    <tr>
+        <td> {{ row.sID }}</td>
+        <td> {{ row.sUPRC }}</td>
+        <td> {{ row.sName }}</td>
+        <td> {{ row.sAddress }}</td>
+        <td> {{ row.sPhoneNumber }}</td>
+        <td> {{ row.sSex }}</td>
+        <td> {{ row.sBDate }}</td>
+        <td> {{ row.sDepartment }}</td>
+        <td> {{ row.sMajor }}</td>
+    </tr>
+    {% endfor %}
+    {% endif %}
+</table>
+
+<hr> 
+
+<h2>Delete Students</h2>
+<form method="POST" action="{{ url_for('del_students') }}">
+    <div>
+        <label for="sID">Student ID:</label>
+        <input type="text" id="sID" name="sID">
+        <input type="submit" value="Submit">
+    </div>
+</form>
+
+</body>
+</html>

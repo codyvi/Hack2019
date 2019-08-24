@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+
+</style>
+<head>
+    <link rel="stylesheet" type="text/css" href="/static/styles.css">
+    <meta charset="UTF-8">
+    <title>Professor</title>
+</head>
+<body>
+<h1>Professor</h1>
+
+<div>
+    <form method="POST" action="{{ url_for('professor') }}">
+        <div>
+            <label for="pID"> Professor ID: </label>
+            <input type="text" id="pID" name="pID">
+        </div>
+        <div>
+            <label for="pUPRC"> Professor URPC (CURP): </label>
+            <input type="text" id="pUPRC" name="pUPRC">
+        </div>
+        <div>
+                <label for="pName"> Professor Name: </label>
+                <input type="text" id="pName" name="pName">
+        </div>
+      <div>
+        <label for="pAddress"> Professor Address: </label>
+        <input type="text" id="pAddress" name="pAddress">
+      </div>
+
+      <div>
+            <label for="pPhoneNumber"> Professor Phone Number: </label>
+            <input type="text" id="pPhoneNumber" name="pPhoneNumber">
+    </div>
+      
+      <div>
+        <label class="radio">
+          <input type="radio" name="pSex" value="F">
+          F
+        </label>
+        <label class="radio">
+          <input type="radio" name="pSex" value="M">
+          M
+        </label>
+      </div>
+
+      <div>
+        <label for="pBDate">Date of Birth:</label>
+        <input type="date" id="pBDate" name="pBDate">
+      </div>
+      <input type="submit" value="Insert">
+    </form>
+</div>
+<hr>
+
+<h2>Search Professor by ID: </h2>
+<div class="inputs">
+        <form method="GET" action="{{ url_for('professor') }}">
+            <label for="pID">Professor ID:</label>
+            <input type="text" id="pID" name="pID">
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+<table id="professor" style="width:100%">
+    {% if result %}
+    <tr>
+        <th>Professor Id</th>
+        <th>UPRC</th>
+        <th>Professor Name</th>
+        <th>Professor Address</th>
+        <th>Professor Phone</th>
+        <th>Professor Sex</th>
+        <th>Professor Bdate</th>
+    </tr>
+    {% for row in result %}
+    <tr>
+        <td> {{ row.pID }}</td>
+        <td> {{ row.pUPRC }}</td>
+        <td> {{ row.pName }}</td>
+        <td> {{ row.pAddress }}</td>
+        <td> {{ row.pPhoneNumber }}</td>
+        <td> {{ row.pSex }}</td>
+        <td> {{ row.pBDate }}</td>
+    </tr>
+    {% endfor %}
+    {% endif %}
+</table>
+
+<h2>Delete Proffesor</h2>
+<form method="POST" action="{{ url_for('del_proffesors') }}">
+    <div>
+        <label for="pID">Professor ID:</label>
+        <input type="text" id="pID" name="pID">
+        <input type="submit" value="Submit">
+    </div>
+</form>
+
+
+</body>
+</html>
