@@ -24,8 +24,20 @@ h1{
 }
 
 hr{
-    width: 400px;
+    width: 800px;
     border-top: 1px solid #f8f8f8;
     border-bottom: 1px solid rgba(0,0,0,0.2);
 }
 
+
+#nav li:hover a{
+    color: green;
+}
+
+#nav li a:hover{
+    color: rgb(0, 217, 255);
+}
+
+.btn-light{
+    background-color: beige !important;
+}
