@@ -41,13 +41,11 @@ def login():
     else:
         return render_template('index.html', result=res, content_type='application/json')
 
-<<<<<<< HEAD
 @app.route('/data')
 def do_foo():
     messages = request.args['messages']  # counterpart for url_for()
     messages = session['messages']       # counterpart for session
     return render_template("dataShown.html", messages=json.loads(messages))
-=======
 @app.route('/registro')
 def registro():
     return render_template('registro.html')
@@ -59,7 +57,6 @@ def visitasanteriores():
 @app.route('/SesiónUsuario')
 def SesiónUsuario():
     return render_template('SesiónUsuario.html')
->>>>>>> 944f2878373e0e6e101e56b708a31b6f4056d2f3
 
 @app.route('/camera')
 def camera():
