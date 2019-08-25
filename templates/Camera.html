@@ -2,9 +2,20 @@
   <head>
     <title>Video Streaming Demonstration</title>
     <link rel="stylesheet" href="../static/camera.css">
+    
   </head>
-  <body>
-    <h1>Video Streaming Demonstration</h1>
+  <body id="Stream-body">
+    <h1 id = "Stream-text"> Video Streaming Demonstration</h1>
     <img id="bg" src="{{ url_for('video_feed') }}">
+    <button id="analyze">Analyze</button>
+    {{JSGlue.include()}}
+    <script>
+        const but = document.querySelector('#analyze');
+        but.addEventListener('click', (e) => {
+            const message = Flask.url_for('qrcheck', {});//e.returnValue
+            if (message != [])
+                location.href = message
+        })
+    </script>
   </body>
 </html>

@@ -1,14 +1,18 @@
-from flask import Flask, render_template, request, Response
+from flask import Flask, render_template, request, Response, redirect, url_for
 from camera import VideoCamera
-import pyzbar.pyzbar as pyzbar
+import pyzbar.pyzbar as pyzbar 
 import time
+import json
 import logging
 import sys
+from flask_jsglue import JSGlue
 
 import db
 
 app = Flask(__name__)
+jsglue = JSGlue(app)
 
+image = None
 
 @app.route('/')
 def index():
@@ -37,18 +41,23 @@ def login():
     else:
         return render_template('index.html', result=res, content_type='application/json')
 
+@app.route('/data')
+def do_foo():
+    messages = request.args['messages']  # counterpart for url_for()
+    messages = session['messages']       # counterpart for session
+    return render_template("dataShown.html", messages=json.loads(messages))
+
 @app.route('/camera')
 def camera():
     return render_template('Camera.html')
 
+def check():
+    return False
+
 def gen(camera):
     while True:
+        global image
         frame, image = camera.get_frame()
-        if int(round(time.time() * 1000)) % 5000 :
-            decodedObjects = pyzbar.decode(image)
-            if decodedObjects != [] :
-                for obj in decodedObjects:
-                    print(obj.data)
         yield (b'--frame\r\n'
                 b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n\r\n')
 
@@ -56,6 +65,18 @@ def gen(camera):
 def video_feed():
     return Response(gen(VideoCamera()),
                     mimetype='multipart/x-mixed-replace; boundary=frame')
+
+@app.route('/qr_check')
+def qrcheck():
+    print("Llego")
+    if int(round(time.time() * 1000)) % 5000 :
+        decodedObjects = pyzbar.decode(image)
+        if decodedObjects != [] :
+            for obj in decodedObjects:
+                messages = json.dumps({"main":obj.data.decode("utf-8")})
+            return render_template("dataShown.html", messages=json.loads(messages))    
+    return []
+        
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True)
