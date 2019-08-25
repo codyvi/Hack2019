@@ -18,13 +18,13 @@
       <div class="login-box">
         <img src="../img/logo2.png" class="avatar" alt="Avatar Image">
         <h1>Sign in Here</h1>
-        <form action="/login" method="POST" id="login-form">
+        <form  method="POST" action="{{ url_for('login') }}" id="login-form">
           <!-- USERNAME INPUT -->
-          <label for="username">Username</label>
-          <input type="text" class="form-control" name="name" placeholder="Enter Username" id="login-email">
+          <label for="sId">Username</label>
+          <input type="text" class="form-control" name="sId" placeholder="Enter Username" id="sId">
           <!-- PASSWORD INPUT -->
-          <label for="password">Password</label>
-          <input type="password" class="form-control" name="password" placeholder="Enter Password" id="login-password">
+          <label for="sPass">Password</label>
+          <input type="password" class="form-control" name="sPass" placeholder="Enter Password" id="sPass">
           <input type="submit" value="Log In">
           <a href="#">Lost your Password?</a><br>
           <a href="/signup">Don't have An account?</a>

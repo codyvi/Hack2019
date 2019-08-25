@@ -24,7 +24,7 @@ class Database:
             FROM usuario
             '''
         if sId != '':
-            query += 'WHERE sID = {}'.format(sId)
+            query += 'WHERE sId = {}'.format(sId)
             query += 'AND sPass = {}'.format(sPass)
 
         print('Query: {}'.format(query), file=sys.stdout)
