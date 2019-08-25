@@ -41,6 +41,14 @@ def login():
     else:
         return render_template('index.html', result=res, content_type='application/json')
 
+<<<<<<< HEAD
+=======
+@app.route('/data')
+def do_foo():
+    messages = request.args['messages']  # counterpart for url_for()
+    messages = session['messages']       # counterpart for session
+    return render_template("dataShown.html", messages=json.loads(messages))
+>>>>>>> 4ab5eda31ed6f6a727941f39f1362e169ea7f340
 @app.route('/registro')
 def registro():
     return render_template('registro.html')
