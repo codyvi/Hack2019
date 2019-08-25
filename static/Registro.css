@@ -80,7 +80,10 @@ html{
     border-radius: 20px;
     transform: translate(50%, 0);
   }
-  
+  #registro-boton{
+    transform: translate(140%, 0);
+  }
+
   .login-box input[type="submit"]:hover {
     cursor: pointer;
     background: #9f8066;
