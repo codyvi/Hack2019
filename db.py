@@ -23,14 +23,14 @@ class Database:
             SELECT *
             FROM usuario
             '''
-        if sId != '':
-            query += 'WHERE sId = {}'.format(sId)
-            query += 'AND sPass = {}'.format(sPass)
+
+        query += "WHERE sId = '{}'".format(sId)
+        query += " AND sPass = '{}'".format(sPass)
 
         print('Query: {}'.format(query), file=sys.stdout)
         self.cur.execute(query)
         result = self.cur.fetchall()
-
+    
         return result
 
 # SELECT * FROM login_details WHERE username = ? AND password = ?

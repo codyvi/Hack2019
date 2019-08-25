@@ -19,20 +19,22 @@ def index():
 def login():
     def db_query():
         _db = db.Database()
+        counter = 0
         if request.method == "POST":
-            sID = request.form["sID"]
+            sID = request.form["sId"]
             sPass = request.form["sPass"]
             res =_db.login(sID, sPass)
             print('Entrando...', file=sys.stdout)
+            print(res, file=sys.stdout)
 
             return res
             
 
-        else:
-            print('No se encontro usuario', file=sys.stdout)
-            
-        res = db_query()
-             
+    res = db_query()
+
+    if len(res) >= 1:
+        return render_template('SesiónUsuario.html', result=res, content_type='application/json')
+    else:
         return render_template('index.html', result=res, content_type='application/json')
 
 @app.route('/camera')
