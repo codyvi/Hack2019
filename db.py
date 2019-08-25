@@ -20,12 +20,13 @@ class Database:
 
     def login(self, sId, sPass):
         query = '''
-            SELECT *
+            (SELECT *
             FROM usuario
             '''
 
         query += "WHERE sId = '{}'".format(sId)
-        query += " AND sPass = '{}'".format(sPass)
+        query += " AND sPass = '{}')".format(sPass)
+      
 
         print('Query: {}'.format(query), file=sys.stdout)
         self.cur.execute(query)

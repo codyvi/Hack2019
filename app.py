@@ -21,9 +21,9 @@ def index():
 
 @app.route('/index',methods=["GET","POST"])
 def login():
+    ssid = 0
     def db_query():
         _db = db.Database()
-        counter = 0
         if request.method == "POST":
             sID = request.form["sId"]
             sPass = request.form["sPass"]
@@ -32,20 +32,34 @@ def login():
             print(res, file=sys.stdout)
 
             return res
-            
 
     res = db_query()
-
-    if len(res) >= 1:
+    if len(res) == 0:
+        return render_template('Guardian.html', result=res, content_type='application/json')
+    elif len(res) >= 1:
         return render_template('SesiónUsuario.html', result=res, content_type='application/json')
     else:
         return render_template('index.html', result=res, content_type='application/json')
 
+<<<<<<< HEAD
 @app.route('/data')
 def do_foo():
     messages = request.args['messages']  # counterpart for url_for()
     messages = session['messages']       # counterpart for session
     return render_template("dataShown.html", messages=json.loads(messages))
+=======
+@app.route('/registro')
+def registro():
+    return render_template('registro.html')
+
+@app.route('/visitasanteriores')
+def visitasanteriores():
+    return render_template('visitasanteriores.html')
+
+@app.route('/SesiónUsuario')
+def SesiónUsuario():
+    return render_template('SesiónUsuario.html')
+>>>>>>> 944f2878373e0e6e101e56b708a31b6f4056d2f3
 
 @app.route('/camera')
 def camera():
