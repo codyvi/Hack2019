@@ -101,3 +101,7 @@ html{
     color: rgb(170, 0, 0);
   }
   
+  #elflex {
+    display: flex;
+    justify-content: center;
+  }

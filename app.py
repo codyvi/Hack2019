@@ -41,6 +41,14 @@ def login():
 def registro():
     return render_template('registro.html')
 
+@app.route('/visitasanteriores')
+def visitasanteriores():
+    return render_template('visitasanteriores.html')
+
+@app.route('/SesiónUsuario')
+def SesiónUsuario():
+    return render_template('SesiónUsuario.html')
+
 @app.route('/camera')
 def camera():
     return render_template('Camera.html')
