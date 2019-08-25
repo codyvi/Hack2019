@@ -37,6 +37,10 @@ def login():
     else:
         return render_template('index.html', result=res, content_type='application/json')
 
+@app.route('/registro')
+def registro():
+    return render_template('registro.html')
+
 @app.route('/camera')
 def camera():
     return render_template('Camera.html')
