@@ -17,9 +17,9 @@ def index():
 
 @app.route('/index',methods=["GET","POST"])
 def login():
+    ssid = 0
     def db_query():
         _db = db.Database()
-        counter = 0
         if request.method == "POST":
             sID = request.form["sId"]
             sPass = request.form["sPass"]
@@ -28,11 +28,11 @@ def login():
             print(res, file=sys.stdout)
 
             return res
-            
 
     res = db_query()
-
-    if len(res) >= 1:
+    if len(res) == 0:
+        return render_template('Guardian.html', result=res, content_type='application/json')
+    elif len(res) >= 1:
         return render_template('SesiónUsuario.html', result=res, content_type='application/json')
     else:
         return render_template('index.html', result=res, content_type='application/json')
