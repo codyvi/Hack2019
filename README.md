@@ -32,6 +32,9 @@ python -m flask run
 
 en su browser, ir a `localhost:5000` y ya se puede hacer login
 
+# ¿Por qué hicimos esto?
+Para poder reducir el tiempo de espera en las residencias privadas con el guardia dando los datos, también se puede aplicar a centros comerciales u otros establecimientos
+
 # ¿Qué Funciona?
 * Login (User Side)
 * Leer Códigos ed Qr y guardar la info
