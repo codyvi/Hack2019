@@ -1,7 +1,7 @@
 # Residence App
 
 # ¿Qué es FastResidence?
-FastResidenec es una aplicación web desarollada por dos alumnos en un Hack, la cuál puede tomar mucho camino si se sigue trabajando. Su misión es reducir el tiempo de espera en las residencias al pedir datos, pero se pudiera aplicar a la reducción de datos en cualquier otro establecimiento.
+FastResidence es una aplicación web desarollada por dos alumnos en un Hack, la cuál puede tomar mucho camino si se sigue trabajando. Su misión es reducir el tiempo de espera en las residencias al pedir datos, pero se pudiera aplicar a la reducción de datos en cualquier otro establecimiento.
 
 # ¿Por qué hicimos esto?
 Para poder reducir el tiempo de espera en las residencias privadas con el guardia dando los datos, también se puede aplicar a centros comerciales u otros establecimientos.
