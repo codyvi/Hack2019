@@ -30,26 +30,16 @@ y después:
 python -m flask run
 ```
 
-en su browser, ir a `localhost:5000` y navegar por los queries desde ahi.
+en su browser, ir a `localhost:5000` y ya se puede hacer login
 
-## ¿Cómo esta organizada la aplicación?
-```
-universidad/
-  static/
-    styles.css
-  templates/
-    members.html
-  app.py
-  db.py
-  README.md
-  requirements.txt
-```
+# ¿Qué Funciona?
+* Login (User Side)
+* Leer Códigos ed Qr y guardar la info
 
-- En `app.py` se encuentran las rutas de la aplicación.
-- `db.py` contiene la conexión a la base de datos y algunos queries de ejemplo.
-- `README.md` es este documento.
-- `requirements.txt` contiene las librerias necesarias para que este proyecto funcione.
-- En el folder `templates/`, estan los `html` para ver los resultados de los queries.
-- En el folder `static/` se encuentra el css para el html.
+# ¿Que Falta?
+* Login (Guardian Side)
+* Terminar la base de datos 
+* Forms para generar el qr
+* Security in Login
 
-Ustedes tendrán que modificar `db.py`, `app.py` y agregar mas templates en el folder de `templates/`
+
